@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyMind | finance assistance</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">
+                <span>.</span>
+                <span>MoneyMind</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">.Features</a>
+                <a href="#quiz">.Quiz</a>
+                <a href="#simulator">.Simulator</a>
+                <a href="#resources">.Learn</a>
+                <a href="#debt-calculator">.Debt-Cal</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Animated Posters -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Train your brain </h1>
+            <p>We are here to help you with your finance and free you from your debt pressure </p>
+            <a href="#quiz" class="btn btn-primary">Begin The Quiz</a>
+        </div>
+        <div class="hero-image">
+            <div class="poster-container"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Prominent Features</h2>
+        
+        <div class="feature-card">
+            <h3>Our Interactive Economic Simulator</h3>
+            <p>Know the effect of inflation and GDP closely,for this you can simply run the simulator</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>Quiz of Finance and Economics</h3>
+            <p>This quiz will help you clear your concepts and helps you understand economics.</p>
+        </div>
+        
+        <div class="feature-card">
+            <h3>Good advice Chatbox</h3>
+            <p>Our AI chatbox will help you analyze your situation and give you good advice.
+          <p> LIKE A FREE THERAPY SESSION.</p>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz" id="quiz">
+      <h2 class="section-title">Our User-Interactive and Informative Quiz </h2>
+        
+        <div class="quiz-container">
+            <div class="quiz-question" id="quiz-question"></div>
+            <div class="quiz-options" id="quiz-options"></div>
+            <div class="quiz-feedback" id="quiz-feedback"></div>
+            <div class="quiz-progress">
+                <span>Question <span id="current-question">1</span> of <span id="total-questions">10</span></span>
+                <button class="btn btn-primary" id="next-question">Next Question</button>
+            </div>
+            <div class="quiz-results" id="quiz-results">
+                <h3>Your Results</h3>
+                <div class="star-rating" id="star-rating"></div>
+                <p>Score: <span id="quiz-score">0</span>/10</p>
+                <button class="btn btn-primary" id="retake-quiz">Retake Quiz</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulator Section -->
+    <section class="simulator" id="simulator">
+        <h2 class="section-title">Simulate Your Economics</h2>
+        
+        <div class="simulator-container">
+            <div class="control-panel">
+                <h3>Economic Controls</h3>
+                <div class="control-group">
+                    <label for="tax-rate">Tax Rate</label>
+                    <input type="range" id="tax-rate" min="0" max="50" value="25">
+                    <span class="value-display">25%</span>
+                </div>
+                <div class="control-group">
+                    <label for="interest-rate">Interest Rate</label>
+                    <input type="range" id="interest-rate" min="0" max="10" step="0.5" value="3.5">
+                    <span class="value-display">3.5%</span>
+                </div>
+                <div class="control-group">
+                    <label for="spending">Government Spending</label>
+                    <input type="range" id="spending" min="0.5" max="2" step="0.1" value="1">
+                    <span class="value-display">$1T</span>
+                </div>
+                <button class="btn btn-primary" id="run-simulation">Run Simulation</button>
+            </div>
+            
+            <div class="results-dashboard">
+                <div class="dashboard-header">
+                    <h3>Simulation Results</h3>
+                    <div class="time-selector">
+                        <button class="time-btn active">1Y</button>
+                        <button class="time-btn">5Y</button>
+                        <button class="time-btn">10Y</button>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h4>GDP Growth</h4>
+                        <div class="metric-value positive" id="gdp-value">+2.3%</div>
+                        <div class="sparkline" id="gdp-sparkline"></div>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Unemployment</h4>
+                        <div class="metric-value negative" id="unemployment-value">5.1%</div>
+                        <div class="sparkline" id="unemployment-sparkline"></div>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Inflation</h4>
+                        <div class="metric-value warning" id="inflation-value">3.2%</div>
+                        <div class="sparkline" id="inflation-sparkline"></div>
+                    </div>
+                    <div class="metric-card">
+                        <h4>Trade Balance</h4>
+                        <div class="metric-value" id="trade-value">-$42B</div>
+                        <div class="sparkline" id="trade-sparkline"></div>
+                    </div>
+                </div>
+                
+                <div class="main-chart">
+                    <canvas id="economic-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+        <h2 class="section-title">Education Of Finance</h2>
+        <div class="resource-links">
+            <a href="https://en.wikipedia.org/wiki/Finance" target="_blank" class="resource-card">
+                <h3>Wikipedia - Finance</h3>
+                <p>Comprehensive overview of financial concepts</p>
+            </a>
+            <a href="https://www.investopedia.com/" target="_blank" class="resource-card">
+                <h3>Investopedia</h3>
+                <p>Detailed financial education resources</p>
+            </a>
+            <a href="https://www.khanacademy.org/college-careers-more/personal-finance" target="_blank" class="resource-card">
+                <h3>Khan Academy - Personal Finance</h3>
+                <p>Free courses on financial literacy</p>
+            </a>
+          <a href="https://www.alphagamma.eu/finance/best-finance-websites/" target="_blank" class="resource-card">
+             <h3>For more Updates Click Here --></h3>
+            </a>
+        </div>
+    </section>
+
+    <!-- Debt Calculator Section -->
+    <section class="debt-calculator" id="debt-calculator">
+        <h2 class="section-title">Debt Calculator</h2>
+        <div class="calculator-container">
+            <div class="calculator-inputs">
+                <div class="input-group">
+                    <label for="debt-amount">Total Debt ($)</label>
+                    <input type="number" id="debt-amount" value="10000">
+                </div>
+                <div class="input-group">
+                    <label for="debt-interest-rate">Interest Rate (%)</label>
+                    <input type="number" id="debt-interest-rate" step="0.1" value="5.0">
+                </div>
+                <div class="input-group">
+                    <label for="payment-period">Payment Period (years)</label>
+                    <input type="number" id="payment-period" value="5">
+                </div>
+                <button class="btn btn-primary" id="calculate-debt">Calculate</button>
+            </div>
+            <div class="calculator-results">
+                <h3>Repayment Plan</h3>
+                <div class="result-item">
+                    <span>Monthly Payment:</span>
+                    <span id="monthly-payment">$0</span>
+                </div>
+                <div class="result-item">
+                    <span>Total Interest:</span>
+                    <span id="total-interest">$0</span>
+                </div>
+                <div class="result-item">
+                    <span>Total Payment:</span>
+                    <span id="total-payment">$0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Budget calculator -->
+  
+  <section id="budget-planner" class="module-box">
+    <h2 class="module-heading">Personalized Budget Planner</h2>
+
+    <form id="budget-form">
+      <input type="number" id="income" placeholder="Enter your monthly income" required />
+      <div id="expenses-list">
+        <input type="text" placeholder="Expense name" class="expense-name" />
+        <input type="number" placeholder="Amount" class="expense-amount" />
+      </div>
+      <button type="button" id="add-expense-btn">+ Add Expense</button>
+      <button type="submit">Generate Budget</button>
+    </form>
+
+    <div id="budget-results" style="display: none;"></div>
+  </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="https://static.vecteezy.com/system/resources/previews/047/623/005/non_2x/simple-line-drawing-of-a-smiley-face-icon-vector.jpg" alt="moneymind" class="footer-icon" />
+          <h2>MoneyMind</h2>
+          <p>Big news here for better future of you.</p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Examples</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="https://subscribenow.economist.com/?utm_medium=cpc.adword.pd&utm_source=google&utm_campaign=a.io&utm_content=conversion.other-brand.anonymoushttps://subscribenow.economist.com/?utm_medium=cpc.adword.pd&utm_source=google&utm_campaign=a.io&utm_content=conversion.core-brand.anonymous_optimizely&gad_source=1&gad_campaignid=21235102744&gbraid=0AAAAADBuq3KOjEOPJaxSpJU58ShDWRVsR&gclid=Cj0KCQjw5ubABhDIARIsAHMighZWy9zuFn5r2-1w8Ij2_6T6PmlJ911PoiN4QkcFOS66v7AnA_bCCusaApzrEALw_wcB&gclsrc=aw.ds">Blog</a></li>
+              <li><a href="https://www.investopedia.com/articles/basics/11/3-s-simple-investing.asp">Guides</a></li>
+              <li><a href="https://www.marcusstanton.com/?gad_source=1&gad_campaignid=66827062&gbraid=0AAAAADwzJxIyzC14ZWjHLVQ4SRcmf7t6_&gclid=Cj0KCQjw5ubABhDIARIsAHMighYN4wjn7FG4x3GEDtU8pGbY3P3z5S8Y6VZ0oDHUKI4kUl8alTOptYsaAnOQEALw_wcB">Help Center</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="footer-bottom">
+        <p>© 2025 moneymind.All rights reserved.</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Chat Module -->
+    <div class="chat-container">
+        <button class="chat-toggle">Chat with us</button>
+        <div class="chat-window">
+            <div class="chat-header">
+                <h3>Financial Assistant</h3>
+                <button class="close-chat">×</button>
+            </div>
+            <div class="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" placeholder="Ask about financial advice...">
+                <button class="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- All your other HTML content -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
