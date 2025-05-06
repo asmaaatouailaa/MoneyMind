@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Quiz Functionality
+
     const quizData = [
         {
             question: "What is the primary purpose of a budget?",
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
         inflationValue.className = inflationImpact <= 3.0 ? 'metric-value positive' : inflationImpact <= 4.0 ? 'metric-value warning' : 'metric-value negative';
     });
 
-    // Debt Calculator
+ 
     const debtAmount = document.getElementById('debt-amount');
     const debtInterestRate = document.getElementById('debt-interest-rate');
     const paymentPeriod = document.getElementById('payment-period');
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     calculateDebt.click();
 
-    // Chat Module
+ 
     const chatToggle = document.querySelector('.chat-toggle');
     const chatWindow = document.querySelector('.chat-window');
     const closeChat = document.querySelector('.close-chat');
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
         addMessage("Hello! I'm your financial assistant. How can I help you today?", 'bot-message');
     }, 1000);
 
-    // Budget Calculator
+   
     const budgetForm = document.getElementById('budget-form');
     const addExpenseBtn = document.getElementById('add-expense-btn');
     const expensesList = document.getElementById('expenses-list');
