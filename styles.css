@@ -26,7 +26,6 @@ body {
     padding-top: 80px;
 }
 
-/* Sticky Header */
 header {
     background: white;
     box-shadow: 0 6px 60px rgba(0,0,0,0.1);
@@ -71,7 +70,6 @@ header {
     color: var(--primary);
 }
 
-/* Hero Section */
 .hero {
     display: flex;
     align-items: center;
@@ -187,7 +185,7 @@ header {
     transform: translateY(-20px);
 }
 
-/* Quiz Section */
+
 .quiz {
     padding: 4rem 5%;
     background: linear-gradient(135deg, var(--primary-light), var(--success));
@@ -252,7 +250,7 @@ header {
     margin: 1rem 0;
 }
 
-/* Simulator Section */
+
 .simulator {
     padding: 4rem 5%;
     background: white;
@@ -434,7 +432,7 @@ header {
     font-weight: 600;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1024px) {
     .simulator-container {
         flex-direction: column;
@@ -564,9 +562,6 @@ hr {
   margin: 30px 0 20px;
 }
 
-/* Add this at the end of your existing CSS */
-
-/* Chat Module Styles */
 .chat-container {
     position: fixed;
     bottom: 20px;
@@ -689,7 +684,6 @@ hr {
     background: var(--secondary);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .chat-window {
         width: 300px;
@@ -776,7 +770,6 @@ button:hover {
   padding: 10px;
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
   #budget-charts {
     flex-direction: column;
