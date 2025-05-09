@@ -76,14 +76,14 @@ header {
     padding: 4rem 5%;
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     min-height: 80vh;
-    position: relative; /* Add this */
+    position: relative;
 }
 
 
 .hero-content {
     flex: 1;
     max-width: 600px;
-    z-index: 2; /* Add this to keep content above posters */
+    z-index: 2; 
 }
 
 .hero h1 {
@@ -124,8 +124,8 @@ header {
 .hero-image {
     flex: 1;
     position: relative;
-    width: 100%; /* Add this */
-    height: 50%; /* Add this */
+    width: 100%; 
+    height: 50%; 
 }
 
 /* Poster Animation */
@@ -143,9 +143,9 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 1200px; /* Increased max-width */
+    max-width: 1200px; 
     height: 80%;
-    min-height: 400px; /* Minimum height */
+    min-height: 400px;
     opacity: 20;
     transition: opacity 1s ease-in-out;
     border-radius: 30px;
@@ -158,7 +158,7 @@ header {
 .poster.active {
     opacity: 6;
 }
-/* Features Section */
+
 .features {
     padding: 4rem 5%;
     background: white;
@@ -345,7 +345,7 @@ header {
     margin-top: 2rem;
 }
 
-/* Resources Section */
+
 .resources {
     padding: 4rem 5%;
     background: var(--light);
@@ -379,7 +379,6 @@ header {
     margin-bottom: 0.5rem;
 }
 
-/* Debt Calculator Section */
 .debt-calculator {
     padding: 4rem 5%;
     background: white;
