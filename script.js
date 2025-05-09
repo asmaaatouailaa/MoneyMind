@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Poster animation
     const posters = [
         'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnZrcW5lM3BtbWFjcHR2ZzBjNnIxYThnYnhnZXZ6ZDd4eWN4OWI5MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tJwQ1NktT6Dg3pjcXa/giphy.gif',
         'https://media.giphy.com/media/oHmeFa2PtwGLN4iraw/giphy.gif',
@@ -157,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     loadQuestion();
 
-    // Economic Simulator
     const taxRate = document.getElementById('tax-rate');
     const interestRate = document.getElementById('interest-rate');
     const spending = document.getElementById('spending');
