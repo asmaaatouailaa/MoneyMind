@@ -98,6 +98,26 @@ document.addEventListener('DOMContentLoaded', function() {
         nextQuestionBtn.style.display = 'none';
         quizFeedback.textContent = '';
     }
+    // Ensure your notification can be toggled correctly
+
+// Function to show the notification
+function showNotification(message) {
+    const notification = document.getElementById("notification");
+    notification.innerText = message; // Set the message dynamically
+    notification.classList.add("show");
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove("show");
+    }, 3000);
+}
+
+// Example: Show notification when next question is clicked
+document.getElementById('next-question').addEventListener('click', function() {
+    showNotification('You moved to the next question!');
+});
+
+      
     
     function selectAnswer(selectedIndex) {
         const question = quizData[currentQuizIndex];
@@ -108,14 +128,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         if (selectedIndex === question.answer) {
+            showNotification("Correct answer!", "success");
             quizFeedback.textContent = 'Correct!';
             quizFeedback.style.color = 'green';
             score++;
         } else {
+            showNotification("Oops! That was incorrect.", "error");
             quizFeedback.textContent = `Incorrect! The correct answer is: ${question.options[question.answer]}`;
             quizFeedback.style.color = 'red';
             options[selectedIndex].style.backgroundColor = 'var(--danger)';
         }
+       
+        
+        
         
         options[question.answer].style.backgroundColor = 'var(--success)';
         nextQuestionBtn.style.display = 'block';
