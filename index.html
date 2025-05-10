@@ -62,7 +62,7 @@
 
     <section class="quiz" id="quiz">
       <h2 class="section-title">Our User-Interactive and Informative Quiz </h2>
-        
+      <div id="notification" class="notification">Notification text here</div>
         <div class="quiz-container">
             <div class="quiz-question" id="quiz-question"></div>
             <div class="quiz-options" id="quiz-options"></div>
@@ -220,6 +220,82 @@
     <div id="budget-results" style="display: none;"></div>
   </section>
 
+  <section id="faq-section" class="faq-section">
+  <div class="faq-container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <p class="faq-subtitle">Find answers to common questions about MoneyMind</p>
+    
+    <div class="faq-categories">
+      <button class="category-btn active" data-category="general">General</button>
+      <button class="category-btn" data-category="debt">Debt Calculator</button>
+      <button class="category-btn" data-category="budget">Budgeting</button>
+    </div>
+    
+    <div class="faq-accordion">
+     
+      <div class="faq-category" id="general-category">
+        <div class="faq-item">
+          <button class="faq-question">What is MoneyMind?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>MoneyMind is a personal finance tool that helps you manage your money, track debts, and plan your budget effectively.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">Is MoneyMind free to use?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Yes, MoneyMind is completely free to use with no hidden charges or subscriptions.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">How do I get started?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Simply navigate to the tool you want to use (Debt Calculator, Budget Planner, etc.) and start entering your financial information.</p>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="faq-category" id="debt-category" style="display:none;">
+        <div class="faq-item">
+          <button class="faq-question">How does the debt calculator work?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Our debt calculator helps you understand how long it will take to pay off your debts based on your current payments, or how much you need to pay each month to be debt-free by a certain date.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">Does the calculator account for interest?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Yes, you can input your interest rate and the calculator will account for accruing interest in its calculations.</p>
+          </div>
+        </div>
+      </div>
+      
+    
+      <div class="faq-category" id="budget-category" style="display:none;">
+        <div class="faq-item">
+          <button class="faq-question">How can I create a budget?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>You can start by tracking your income and expenses, then allocate amounts to different categories based on your financial goals.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">What budgeting methods do you recommend?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>We support various methods including 50/30/20 budgeting, zero-based budgeting, and envelope budgeting. Choose what works best for your situation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  
+  
+  
 
     <footer class="footer">
       <div class="footer-container">
@@ -286,5 +362,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+    
+
+
+
+
 </body>
 </html>
