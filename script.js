@@ -98,6 +98,26 @@ document.addEventListener('DOMContentLoaded', function() {
         nextQuestionBtn.style.display = 'none';
         quizFeedback.textContent = '';
     }
+    // Ensure your notification can be toggled correctly
+
+// Function to show the notification
+function showNotification(message) {
+    const notification = document.getElementById("notification");
+    notification.innerText = message; // Set the message dynamically
+    notification.classList.add("show");
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove("show");
+    }, 3000);
+}
+
+
+document.getElementById('next-question').addEventListener('click', function() {
+    showNotification('You moved to the next question!');
+});
+
+      
     
     function selectAnswer(selectedIndex) {
         const question = quizData[currentQuizIndex];
@@ -108,14 +128,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         if (selectedIndex === question.answer) {
+            showNotification("Correct answer!", "success");
             quizFeedback.textContent = 'Correct!';
             quizFeedback.style.color = 'green';
             score++;
         } else {
+            showNotification("Oops! That was incorrect.", "error");
             quizFeedback.textContent = `Incorrect! The correct answer is: ${question.options[question.answer]}`;
             quizFeedback.style.color = 'red';
             options[selectedIndex].style.backgroundColor = 'var(--danger)';
         }
+       
+        
+        
         
         options[question.answer].style.backgroundColor = 'var(--success)';
         nextQuestionBtn.style.display = 'block';
@@ -438,4 +463,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
         Plotly.newPlot('bar-chart', barData, barLayout);
     }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+      const faqItem = question.parentElement;
+      const isActive = faqItem.classList.contains('active');
+      
+
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+    
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    });
+  });
+
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      categoryBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const category = btn.dataset.category;
+      document.querySelectorAll('.faq-category').forEach(cat => {
+        cat.style.display = 'none';
+      });
+      document.getElementById(`${category}-category`).style.display = 'block';
+    });
+  });
+  
+  document.getElementById('general-category').style.display = 'block';
 });
