@@ -98,27 +98,23 @@ document.addEventListener('DOMContentLoaded', function() {
         nextQuestionBtn.style.display = 'none';
         quizFeedback.textContent = '';
     }
-    // Ensure your notification can be toggled correctly
 
-// Function to show the notification
-function showNotification(message) {
-    const notification = document.getElementById("notification");
-    notification.innerText = message; // Set the message dynamically
-    notification.classList.add("show");
+    function showNotification(message) {
+        const notification = document.getElementById("notification");
+        notification.innerText = message; // Set the message dynamically
+        notification.classList.add("show");
 
-    // Hide after 3 seconds
-    setTimeout(() => {
-        notification.classList.remove("show");
-    }, 3000);
-}
+        // Hide after 3 seconds
+        setTimeout(() => {
+            notification.classList.remove("show");
+        }, 3000);
+    }
 
+    // Show notification when next question is clicked
+    document.getElementById('next-question').addEventListener('click', function() {
+        showNotification('You moved to the next question!');
+    });
 
-document.getElementById('next-question').addEventListener('click', function() {
-    showNotification('You moved to the next question!');
-});
-
-      
-    
     function selectAnswer(selectedIndex) {
         const question = quizData[currentQuizIndex];
         const options = document.querySelectorAll('.quiz-option');
